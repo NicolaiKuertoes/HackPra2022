@@ -1,0 +1,1 @@
+flag{You_gotta_heart_javascript}
