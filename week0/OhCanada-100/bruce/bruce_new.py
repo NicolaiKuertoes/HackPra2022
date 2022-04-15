@@ -25,7 +25,7 @@ for i in range(how_many):
     # downlaod file if it exists
     if res.status_code == 200:
         # print current filename
-        print('[+] Downloading document_{:03d}.pdf'.format(i))
+        print('\r[+] Downloading document_{:03d}.pdf'.format(i))
         # write file to disk
         open('{}/document_{:03d}.pdf'.format(dir_out, i), 'wb').write(res.content)
 
