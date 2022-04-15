@@ -4,7 +4,7 @@ import re
 import requests as req
 import codecs   # wegen unicode kack
 
-# specifie output directory
+# specify output directory
 dir_out = './downloaded_files'
 
 # create directory if non existend
@@ -38,10 +38,16 @@ for i in range(how_many):
             
             # check if file contains the flag
             if re.search(flag_regex, content):
-                # prints the flag
+                # print the flag
                 print("\n[i] " + re.findall(flag_regex, content)[0])
-                # stops the execution on success
+                # remove temporary txt
+                os.remove('{}/document_{:03d}.txt'.format(dir_out, i))
+                # stop execution on success
                 exit()
+            else:
+                # remove unnecessary files
+                os.remove('{}/document_{:03d}.pdf'.format(dir_out, i))
+                os.remove('{}/document_{:03d}.txt'.format(dir_out, i))
 
 print("[!] Error 404 - flag not found")
 
